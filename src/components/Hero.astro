@@ -11,7 +11,10 @@ import { cta, headlineLines, subhead, trustAvatars, trustText } from "../data/si
             {avatar.src ? (
               <img src={avatar.src} alt={avatar.alt ?? ""} />
             ) : (
-              <i class={avatar.icon} />
+              <svg class="avatar-glyph" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M12 13.6c-4.3 0-7.7 2.7-7.7 6 0 .8.6 1.4 1.4 1.4h12.6c.8 0 1.4-.6 1.4-1.4 0-3.3-3.4-6-7.7-6Z" />
+              </svg>
             )}
           </span>
         </span>

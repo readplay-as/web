@@ -29,7 +29,7 @@ public/
   fonts/GeistPixel-Circle.woff2 # display-font fallback behind BubbledotICG-FinePos
 src/
   data/site.ts                  # every string and destination on the page
-  layouts/Layout.astro          # head: meta, OG tags, Inter + BubbledotICG-FinePos + Font Awesome
+  layouts/Layout.astro          # head: meta, OG tags, Inter + BubbledotICG-FinePos
   components/
     BackgroundField.astro       # canvas element for the tracking field
     SiteHeader.astro  Hero.astro  ProductRow.astro  MobileMenu.astro
@@ -44,9 +44,9 @@ src/
 three products and the legal line. Change it there, not in the components.
 
 Two placeholders in that file: `company.orgNumber` is empty (the legal line
-omits the segment until it's set), and `trustAvatars` uses Font Awesome
-silhouettes — give each entry a `src` instead of an `icon` to swap in real
-coach portraits.
+omits the segment until it's set), and `trustAvatars` entries are empty — each
+one renders a placeholder silhouette until it gets a `src` pointing at a real
+coach portrait.
 
 Brand assets are generated from `Readplay icon.png`; regenerate them if the
 mark changes.

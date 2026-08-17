@@ -25,20 +25,16 @@ export const signIn = {
 };
 
 /**
- * The avatar stack next to the trust line. `icon` is a Font Awesome class;
- * swap it for `src` once we have portraits we have permission to publish.
+ * The avatar stack beside the trust line. An entry with no `src` renders the
+ * placeholder silhouette; give it a `src` (and `alt`) once we have portraits
+ * we have permission to publish.
  */
 export interface TrustAvatar {
-  icon?: string;
   src?: string;
   alt?: string;
 }
 
-export const trustAvatars: TrustAvatar[] = [
-  { icon: "fa-solid fa-user" },
-  { icon: "fa-solid fa-user" },
-  { icon: "fa-solid fa-user" },
-];
+export const trustAvatars: TrustAvatar[] = [{}, {}, {}];
 
 export const trustText = "Built with some of the world's best coaches";
 

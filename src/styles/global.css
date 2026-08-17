@@ -336,8 +336,13 @@ img {
   border-radius: 50%;
   background: #fff;
   color: #111;
-  font-size: calc(var(--trust-size) * 0.34);
-  line-height: 1;
+  overflow: hidden;
+}
+
+.avatar-glyph {
+  width: calc(var(--trust-size) * 0.42);
+  height: calc(var(--trust-size) * 0.42);
+  fill: currentColor;
 }
 
 .avatar-inner img {
