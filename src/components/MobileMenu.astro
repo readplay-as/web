@@ -1,0 +1,21 @@
+---
+import { navLinks, signIn } from "../data/site";
+---
+
+<div class="menu-overlay" id="menuOverlay" hidden></div>
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <nav class="mobile-nav" aria-label="Mobile">
+    {
+      navLinks.map((link) => (
+        <a
+          class:list={["mobile-link", { active: link.active }]}
+          href={link.href}
+          aria-current={link.active ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+    <a class="mobile-sign-in" href={signIn.href}>{signIn.label}</a>
+  </nav>
+</div>

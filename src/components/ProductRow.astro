@@ -1,0 +1,51 @@
+---
+import { company, products } from "../data/site";
+
+const year = new Date().getFullYear();
+
+const legal = [
+  `© ${year} ${company.legalName}`,
+  company.orgNumber ? `Org. ${company.orgNumber}` : null,
+  company.country,
+]
+  .filter(Boolean)
+  .join(" · ");
+---
+
+<footer class="footer">
+  <div class="products">
+    {
+      products.map((product) => {
+        const Tag = product.href ? "a" : "div";
+        const linkProps = product.href
+          ? {
+              href: product.href,
+              target: "_blank",
+              rel: "noopener noreferrer",
+            }
+          : {};
+
+        return (
+          <Tag class="product anim" style={`--d: ${product.delay}`} {...linkProps}>
+            <span class="product-name">{product.name}</span>
+            <span class="product-desc">{product.description}</span>
+            <span class="product-status">
+              {product.href ? (
+                <>
+                  {new URL(product.href).hostname}
+                  <span class="product-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </>
+              ) : (
+                product.status
+              )}
+            </span>
+          </Tag>
+        );
+      })
+    }
+  </div>
+
+  <p class="legal anim" style="--d: 0.78s">{legal}</p>
+</footer>

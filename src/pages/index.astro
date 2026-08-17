@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BackgroundField from "../components/BackgroundField.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import Hero from "../components/Hero.astro";
+import ProductRow from "../components/ProductRow.astro";
+import MobileMenu from "../components/MobileMenu.astro";
+---
+
+<Layout>
+  <BackgroundField />
+
+  <div class="page">
+    <SiteHeader />
+    <Hero />
+    <ProductRow />
+  </div>
+
+  <MobileMenu />
+</Layout>

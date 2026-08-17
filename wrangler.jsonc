@@ -1,0 +1,31 @@
+{
+	// Cloudflare Workers config for readplay.app.
+	//
+	// The site is a static Astro build, so this is an assets-only Worker: no
+	// `main`, no Worker script. Cloudflare serves dist/ straight from the edge.
+	//
+	// Build:  pnpm build      → dist/
+	// Deploy: pnpm deploy     → builds, then ships dist/
+	// Local:  pnpm cf:preview → builds, then serves it through workerd
+
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "readplay-web",
+	"account_id": "82be32f85cb4fa72d1c94dba656e232e",
+	"compatibility_date": "2026-08-17",
+
+	"assets": {
+		"directory": "./dist",
+		// serves dist/404.html for unmatched paths
+		"not_found_handling": "404-page"
+	},
+
+	"observability": { "enabled": true },
+
+	// Custom domain. Deploying this repoints readplay.app's DNS (the zone is
+	// already on Cloudflare) away from Vercel and onto this Worker.
+	//
+	// www.readplay.app is still a Vercel CNAME that 308s to the apex — it keeps
+	// working until the Vercel project is retired, at which point replace it
+	// with a Cloudflare Redirect Rule.
+	"routes": [{ "pattern": "readplay.app", "custom_domain": true }]
+}

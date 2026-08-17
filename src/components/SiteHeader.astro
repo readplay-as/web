@@ -1,0 +1,36 @@
+---
+import { navLinks, signIn } from "../data/site";
+---
+
+<header class="site-header">
+  <a class="logo" href="/" aria-label="Readplay home">
+    <img src="/assets/logo.webp" alt="" width="52" height="52" />
+  </a>
+
+  <nav class="nav-pill" aria-label="Primary">
+    {
+      navLinks.map((link) => (
+        <a
+          class:list={["nav-link", { active: link.active }]}
+          href={link.href}
+          aria-current={link.active ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+
+  <a class="sign-in" href={signIn.href}>{signIn.label}</a>
+
+  <button
+    class="burger"
+    id="burger"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="mobileMenu"
+  >
+    <span></span><span></span><span></span>
+  </button>
+</header>

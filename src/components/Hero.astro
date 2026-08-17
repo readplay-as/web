@@ -1,0 +1,30 @@
+---
+import { cta, headlineLines, subhead, trustAvatars, trustText } from "../data/site";
+---
+
+<main class="hero">
+  <div class="trust anim" style="--d: 0.05s">
+    {
+      trustAvatars.map((avatar, i) => (
+        <span class:list={["avatar", `a${i + 1}`]}>
+          <span class="avatar-inner">
+            {avatar.src ? (
+              <img src={avatar.src} alt={avatar.alt ?? ""} />
+            ) : (
+              <i class={avatar.icon} />
+            )}
+          </span>
+        </span>
+      ))
+    }
+    <span class="trust-pill">{trustText}</span>
+  </div>
+
+  <h1 class="headline anim">
+    {headlineLines.map((line) => <span>{line}</span>)}
+  </h1>
+
+  <p class="subhead anim" style="--d: 0.28s">{subhead}</p>
+
+  <a class="cta anim" href={cta.href} style="--d: 0.4s">{cta.label}</a>
+</main>

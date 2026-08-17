@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BackgroundField from "../components/BackgroundField.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import MobileMenu from "../components/MobileMenu.astro";
+---
+
+<Layout title="Page not found — Readplay" description="That page does not exist." noindex>
+  <BackgroundField />
+
+  <div class="page">
+    <SiteHeader />
+
+    <main class="hero">
+      <h1 class="headline anim"><span>404</span></h1>
+      <p class="subhead anim" style="--d: 0.2s">
+        That page does not exist — it may have moved, or never have been here at
+        all.
+      </p>
+      <a class="cta anim" href="/" style="--d: 0.32s">Back to readplay.app</a>
+    </main>
+  </div>
+
+  <MobileMenu />
+</Layout>
